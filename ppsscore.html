@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz Score</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  position: relative; 
+  z-index: 1; /* Ensure the content is above the video */
+  padding: 20px;
+  width: 500px;
+  height: 200px;
+  left: 300px;
+  top: 200px;
+  background: rgba(255, 255, 255, 0.25); /* Semi-transparent background */
+  backdrop-filter: blur(10px); /* Apply a blur effect */
+  border-radius: 20px; /* Rounded corners */
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); /* Box shadow */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Ensures the video stays behind other content */
+  overflow: hidden; /* Prevents the video from overflowing */
+}
+  
+/* Style for the video itself */
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Cover the entire container */
+}
+
+h2 {
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+}
+
+.score {
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+  margin-top: 20px;
+}
+
+.button-container {
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+</style>
+</head>
+<body>
+  <div class="video-container">
+    <video autoplay muted loop>
+      <source src="2.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+<div class="container">
+  <h2>Quiz Score</h2>
+  <div class="score" id="score"></div>
+  <div class="button-container">
+    <button onclick="redirectToHomepage()">Back To Quizzes</button>
+  </div>
+</div>
+
+<script>
+// Retrieve the score from the URL query parameters
+const urlParams = new URLSearchParams(window.location.search);
+const score = urlParams.get('score');
+
+// Display the score on the page
+document.getElementById('score').textContent = "Your Score: " + score + "%";
+
+// Redirect to homepage when the button is clicked
+function redirectToHomepage() {
+  window.location.href = "quizzes.html"; // Change "index.html" to your homepage URL
+}
+</script>
+
+</body>
+</html>

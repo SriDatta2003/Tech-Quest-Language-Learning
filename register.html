@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register</title>
+<link rel="stylesheet" href="Register.css"> <!-- You can link your CSS file for styling -->
+
+<style>
+
+
+  h2{
+    font-size: 30px;
+    text-align: center;
+    color: white;
+  }
+  label{
+    font-size:20px ;
+    color: white;
+  }
+  /* Style for the video container */
+  .video-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Ensures the video stays behind other content */
+    overflow: hidden; /* Prevents the video from overflowing */
+  }
+  
+  /* Style for the video itself */
+  video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the entire container */
+  }
+  
+  /* Style for the register container */
+  .register-container {
+    position: relative; 
+    z-index: 1; /* Ensure the content is above the video */
+    padding: 20px;
+    width: 500px;
+    margin-top: 150px;
+    background: rgba(255, 255, 255, 0.25); /* Semi-transparent background */
+    backdrop-filter: blur(10px); /* Apply a blur effect */
+    border-radius: 20px; /* Rounded corners */
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); /* Box shadow */
+  }
+</style>
+</head>
+<body>
+  <!-- Video container -->
+  <div class="video-container">
+    <video autoplay muted loop>
+      <source src="3.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <!-- Register container -->
+  <div class="register-container">
+    <h2>REGISTER</h2>
+    <form id="register-form">
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        
+      </div><div class="form-group">
+        <label for="regno">Register Number:</label>
+        <input type="text" id="regno" name="regno" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <button type="submit">Register</button>
+    </form>
+    <p id="register-message"></p>
+    <div id="login-button-container"></div>
+  </div>
+
+<script src="Register.js"></script> <!-- You can link your JavaScript file for form validation and submission -->
+</body>
+</html>

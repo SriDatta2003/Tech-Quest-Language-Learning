@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Microprocessor and Microcontroller Quiz</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background-image: radial-gradient(18% 28% at 24% 50%, #CEFAFFFF 7%, #073AFF00 100%),radial-gradient(18% 28% at 18% 71%, #FFFFFF59 6%, #073AFF00 100%),radial-gradient(70% 53% at 36% 76%, #73F2FFFF 0%, #073AFF00 100%),radial-gradient(42% 53% at 15% 94%, #FFFFFFFF 7%, #073AFF00 100%),radial-gradient(42% 53% at 34% 72%, #FFFFFFFF 7%, #073AFF00 100%),radial-gradient(18% 28% at 35% 87%, #FFFFFFFF 7%, #073AFF00 100%),radial-gradient(31% 43% at 7% 98%, #FFFFFFFF 24%, #073AFF00 100%),radial-gradient(21% 37% at 72% 23%, #D3FF6D9C 24%, #073AFF00 100%),radial-gradient(35% 56% at 91% 74%, #8A4FFFF5 9%, #073AFF00 100%),radial-gradient(74% 86% at 67% 38%, #6DFFAEF5 24%, #073AFF00 100%),linear-gradient(125deg, #4EB5FFFF 1%, #4C00FCFF 100%);
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.question {
+  margin-bottom: 20px;
+}
+
+.options {
+  margin-bottom: 20px;
+}
+
+.option {
+  margin-bottom: 10px;
+}
+
+
+
+.correct {
+  background-color: #4caf50;
+}
+
+.incorrect {
+  background-color: #f44336;
+}
+.button-14 {
+  touch-action: manipulation;
+  -webkit-appearance: none;
+  appearance: none;
+  position: relative;
+  border-width: 0;
+  padding: 0 8px 12px;
+  min-width: 10em;
+  box-sizing: border-box;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+}
+
+.button-14-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 0;
+  padding: 8px 16px;
+  transform: translateY(0);
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 -1px rgba(0, 0, 0, .25);
+  transition-property: transform;
+  transition-duration: .2s;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.button-14:active .button-14-top {
+  transform: translateY(6px);
+}
+
+.button-14-top::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  border-radius: 4px;
+  width: 100%;
+  height: 100%;
+  box-sizing: content-box;
+  background-image: radial-gradient(#cd3f64, #9d3656);
+  text-align: center;
+  color: #fff;
+  box-shadow: inset 0 0 0px 1px rgba(255, 255, 255, .2), 0 1px 2px 1px rgba(255, 255, 255, .2);
+  transition-property: border-radius, padding, width, transform;
+  transition-duration: .2s;
+}
+
+.button-14:active .button-14-top::after {
+  border-radius: 6px;
+  padding: 0 2px;
+}
+
+.button-14-bottom {
+  position: absolute;
+  z-index: -1;
+  bottom: 4px;
+  left: 4px;
+  border-radius: 8px / 16px 16px 8px 8px;
+  padding-top: 6px;
+  width: calc(100% - 8px);
+  height: calc(100% - 10px);
+  box-sizing: content-box;
+  background-color: #803;
+  background-image: radial-gradient(4px 8px at 4px calc(100% - 8px), rgba(255, 255, 255, .25), transparent), radial-gradient(4px 8px at calc(100% - 4px) calc(100% - 8px), rgba(255, 255, 255, .25), transparent), radial-gradient(16px at -4px 0, white, transparent), radial-gradient(16px at calc(100% + 4px) 0, white, transparent);
+  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.5), inset 0 -1px 3px 3px rgba(0, 0, 0, .4);
+  transition-property: border-radius, padding-top;
+  transition-duration: .2s;
+}
+
+.button-14:active .button-14-bottom {
+  border-radius: 10px 10px 8px 8px / 8px;
+  padding-top: 0;
+}
+
+.button-14-base {
+  position: absolute;
+  z-index: -2;
+  top: 4px;
+  left: 0;
+  border-radius: 12px;
+  width: 100%;
+  height: calc(100% - 4px);
+  background-color: rgba(0, 0, 0, .15);
+  box-shadow: 0 1px 1px 0 rgba(255, 255, 255, .75), inset 0 2px 2px rgba(0, 0, 0, .25);
+}
+
+</style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Microprocessor and Microcontroller Quiz</h2>
+    <div class="question">
+      <p>1. What distinguishes a microcontroller from a microprocessor?</p>
+    </div>
+    <div class="options" id="question1">
+      <div class="option" data-answer="a" onclick="checkAnswer(this, 'b', 'result1')">
+        <input type="radio" id="option1a" name="question1" value="a">
+        <label for="option1a">a) Microcontrollers have a higher clock speed than microprocessors.</label>
+      </div>
+      <div class="option" data-answer="b" onclick="checkAnswer(this, 'b', 'result1')">
+        <input type="radio" id="option1b" name="question1" value="b">
+        <label for="option1b">b) Microcontrollers have more integrated peripherals.</label>
+      </div>
+      <div class="option" data-answer="c" onclick="checkAnswer(this, 'b', 'result1')">
+        <input type="radio" id="option1c" name="question1" value="c">
+        <label for="option1c">c) Microcontrollers do not have an instruction set architecture.</label>
+      </div>
+      <div class="option" data-answer="d" onclick="checkAnswer(this, 'b', 'result1')">
+        <input type="radio" id="option1d" name="question1" value="d">
+        <label for="option1d">d) Microcontrollers lack a control unit.</label>
+      </div>
+      <p id="result1"></p>
+    </div>
+    <div class="question">
+      <p>2. Which of the following is NOT a component of a microprocessor?</p>
+    </div>
+    <div class="options" id="question2">
+      <div class="option" data-answer="a" onclick="checkAnswer(this, 'd', 'result2')">
+        <input type="radio" id="option2a" name="question2" value="a">
+        <label for="option2a">a) Central Processing Unit (CPU)</label>
+      </div>
+      <div class="option" data-answer="b" onclick="checkAnswer(this, 'd', 'result2')">
+        <input type="radio" id="option2b" name="question2" value="b">
+        <label for="option2b">b) Arithmetic Logic Unit (ALU)</label>
+      </div>
+      <div class="option" data-answer="c" onclick="checkAnswer(this, 'd', 'result2')">
+        <input type="radio" id="option2c" name="question2" value="c">
+        <label for="option2c">c) Control Unit</label>
+      </div>
+      <div class="option" data-answer="d" onclick="checkAnswer(this, 'd', 'result2')">
+        <input type="radio" id="option2d" name="question2" value="d">
+        <label for="option2d">d) Real-time Operating System (RTOS)</label>
+      </div>
+      <p id="result2"></p>
+    </div>
+    <div class="question">
+      <p>3. What programming language is commonly used for low-level programming of microprocessors and microcontrollers?</p>
+    </div>
+    <div class="options" id="question3">
+      <div class="option" data-answer="a" onclick="checkAnswer(this, 'c', 'result3')">
+        <input type="radio" id="option3a" name="question2" value="a">
+        <label for="option3a">a) C#</label>
+      </div>
+      <div class="option" data-answer="b" onclick="checkAnswer(this, 'c', 'result3')">
+        <input type="radio" id="option3b" name="question2" value="b">
+        <label for="option3b">b) Python</label>
+      </div>
+      <div class="option" data-answer="c" onclick="checkAnswer(this, 'c', 'result3')">
+        <input type="radio" id="option3c" name="question2" value="c">
+        <label for="option3c">c) Assembly language</label>
+      </div>
+      <div class="option" data-answer="d" onclick="checkAnswer(this, 'c', 'result3')">
+        <input type="radio" id="option3d" name="question2" value="d">
+        <label for="option3d">d) Java</label>
+      </div>
+      <p id="result3"></p>
+    </div>
+    <div class="question">
+      <p>4. Which of the following communication protocols is commonly used for serial communication between microcontrollers and external devices?</p>
+    </div>
+    <div class="options" id="question4">
+      <div class="option" data-answer="a" onclick="checkAnswer(this, 'c', 'result4')">
+        <input type="radio" id="option4a" name="question2" value="a">
+        <label for="option4a">a) USB</label>
+      </div>
+      <div class="option" data-answer="b" onclick="checkAnswer(this, 'c', 'result4')">
+        <input type="radio" id="option4b" name="question2" value="b">
+        <label for="option4b">b) Ethernet</label>
+      </div>
+      <div class="option" data-answer="c" onclick="checkAnswer(this, 'c', 'result4')">
+        <input type="radio" id="option4c" name="question2" value="c">
+        <label for="option4c">c) UART</label>
+      </div>
+      <div class="option" data-answer="d" onclick="checkAnswer(this, 'c', 'result4')">
+        <input type="radio" id="option4d" name="question2" value="d">
+        <label for="option4d">d) HDMI</label>
+      </div>
+      <p id="result4"></p>
+      <div class="question">
+          <p>5. In which application area are microcontrollers commonly used for motor control and process automation?</p>
+        </div>
+        <div class="options" id="question5">
+          <div class="option" data-answer="a" onclick="checkAnswer(this, 'c', 'result5')">
+            <input type="radio" id="option5a" name="question2" value="a">
+            <label for="option5a">a) Consumer electronics</label>
+          </div>
+          <div class="option" data-answer="b" onclick="checkAnswer(this, 'c', 'result5')">
+            <input type="radio" id="option5b" name="question2" value="b">
+            <label for="option5b">b) Automotive systems</label>
+          </div>
+          <div class="option" data-answer="c" onclick="checkAnswer(this, 'c', 'result5')">
+            <input type="radio" id="option5c" name="question2" value="c">
+            <label for="option5c">c) Industrial automation</label>
+          </div>
+          <div class="option" data-answer="d" onclick="checkAnswer(this, 'c', 'result5')">
+            <input type="radio" id="option5d" name="question2" value="d">
+            <label for="option5d">d) IoT devices</label>
+          </div>
+          <p id="result5"></p>
+        </div>
+        <div class="question">
+          <p>6. What is the primary advantage of using microcontrollers in IoT devices?</p>
+        </div>
+        <div class="options" id="question6">
+          <div class="option" data-answer="a" onclick="checkAnswer(this, 'a', 'result6')">
+            <input type="radio" id="option6a" name="question2" value="a">
+            <label for="option6a">a) Low power consumption</label>
+          </div>
+          <div class="option" data-answer="b" onclick="checkAnswer(this, 'a', 'result6')">
+            <input type="radio" id="option6b" name="question2" value="b">
+            <label for="option6b">b) High computational power</label>
+          </div>
+          <div class="option" data-answer="c" onclick="checkAnswer(this, 'a', 'result6')">
+            <input type="radio" id="option6c" name="question2" value="c">
+            <label for="option6c">c) Large memory capacity</label>
+          </div>
+          <div class="option" data-answer="d" onclick="checkAnswer(this, 'a', 'result6')">
+            <input type="radio" id="option6d" name="question2" value="d">
+            <label for="option6d">d) Compatibility with legacy systems</label>
+          </div>
+          <p id="result6"></p>
+        </div>
+        <div class="question">
+          <p>7. Which type of system benefits most from the use of real-time operating systems (RTOS)?</p>
+        </div>
+        <div class="options" id="question7">
+          <div class="option" data-answer="a" onclick="checkAnswer(this, 'd', 'result7')">
+            <input type="radio" id="option7a" name="question2" value="a">
+            <label for="option7a">a) Consumer electronics</label>
+          </div>
+          <div class="option" data-answer="b" onclick="checkAnswer(this, 'd', 'result7')">
+            <input type="radio" id="option7b" name="question2" value="b">
+            <label for="option7b">b) Industrial automation</label>
+          </div>
+          <div class="option" data-answer="c" onclick="checkAnswer(this, 'd', 'result7')">
+            <input type="radio" id="option7c" name="question2" value="c">
+            <label for="option7c">c) Automotive systems</label>
+          </div>
+          <div class="option" data-answer="d" onclick="checkAnswer(this, 'd', 'result7')">
+            <input type="radio" id="option7d" name="question2" value="d">
+            <label for="option7d">d) IoT devices</label>
+          </div>
+          <p id="result7"></p>
+        </div>
+        <div class="question">
+          <p>8.What is the purpose of integrated peripherals in microcontrollers?</p>
+        </div>
+        <div class="options" id="question8">
+          <div class="option" data-answer="a" onclick="checkAnswer(this, 'c', 'result8')">
+            <input type="radio" id="option8a" name="question2" value="a">
+            <label for="option8a">a) To reduce power consumption</label>
+          </div>
+          <div class="option" data-answer="b" onclick="checkAnswer(this, 'c', 'result8')">
+            <input type="radio" id="option8b" name="question2" value="b">
+            <label for="option8b">b) To provide additional processing power</label>
+          </div>
+          <div class="option" data-answer="c" onclick="checkAnswer(this, 'c', 'result8')">
+            <input type="radio" id="option8c" name="question2" value="c">
+            <label for="option8c">c) To simplify hardware design</label>
+          </div>
+          <div class="option" data-answer="d" onclick="checkAnswer(this, 'c', 'result8')">
+            <input type="radio" id="option8d" name="question2" value="d">
+            <label for="option8d">d) To improve software compatibility</label>
+          </div>
+          <p id="result8"></p>
+        </div>
+        <div class="question">
+          <p>9. Which programming skill is essential for embedded systems development using microcontrollers?</p>
+        </div>
+        <div class="options" id="question9">
+          <div class="option" data-answer="a" onclick="checkAnswer(this, 'c', 'result9')">
+            <input type="radio" id="option9a" name="question2" value="a">
+            <label for="option9a">a) Web development</label>
+          </div>
+          <div class="option" data-answer="b" onclick="checkAnswer(this, 'c', 'result9')">
+            <input type="radio" id="option9b" name="question2" value="b">
+            <label for="option9b">b) Graphic design</label>
+          </div>
+          <div class="option" data-answer="c" onclick="checkAnswer(this, 'c', 'result9')">
+            <input type="radio" id="option9c" name="question2" value="c">
+            <label for="option9c">c) Assembly language programming</label>
+          </div>
+          <div class="option" data-answer="d" onclick="checkAnswer(this, 'c', 'result9')">
+            <input type="radio" id="option9d" name="question2" value="d">
+            <label for="option9d">d) Database management</label>
+          </div>
+          <p id="result9"></p>
+        </div>
+        <div class="question">
+          <p>10. What role do hands-on projects and lab exercises play in mastering microprocessor and microcontroller concepts?</p>
+        </div>
+        <div class="options" id="question10">
+          <div class="option" data-answer="a" onclick="checkAnswer(this, 'b', 'result10')">
+            <input type="radio" id="option10a" name="question2" value="a">
+            <label for="option10a">a) They have no impact on learning outcomes.</label>
+          </div>
+          <div class="option" data-answer="b" onclick="checkAnswer(this, 'b', 'result10')">
+            <input type="radio" id="option10b" name="question2" value="b">
+            <label for="option10b">b) They reinforce theoretical concepts and develop practical skills.</label>
+          </div>
+          <div class="option" data-answer="c" onclick="checkAnswer(this, 'b', 'result10')">
+            <input type="radio" id="option10c" name="question2" value="c">
+            <label for="option10c">c) They make learning more difficult.</label>
+          </div>
+          <div class="option" data-answer="d" onclick="checkAnswer(this, 'b', 'result10')">
+            <input type="radio" id="option10d" name="question2" value="d">
+            <label for="option10d">d) They are only suitable for experienced engineers.</label>
+          </div>
+          <p id="result10"></p>
+        </div>
+    </div>
+    <button onclick="submitQuiz()" class="button-14" role="button">
+      <div class="button-14-top text">SUBMIT QUIZ</div>
+      <div class="button-14-bottom"></div>
+      <div class="button-14-base"></div>
+  </div>
+</div>
+
+<script>
+function checkAnswer(option, correctAnswer, resultId) {
+  var userAnswer = option.querySelector('input:checked').value;
+  var result = document.getElementById(resultId);
+  if (userAnswer === correctAnswer) {
+    result.textContent = "Correct!";
+    option.classList.add("correct");
+    option.classList.remove("incorrect");
+  } else {
+    result.textContent = "Incorrect. Try Again :(";
+    option.classList.add("incorrect");
+    option.classList.remove("correct");
+  }
+}
+
+function submitQuiz() {
+  var correctAnswers = document.querySelectorAll('.correct').length;
+  var totalQuestions = document.querySelectorAll('.question').length;
+  var score = (correctAnswers / totalQuestions) * 100;
+  // Redirect to score page and pass the score as a query parameter
+  window.location.href = "ppsscore.html?score=" + score.toFixed(2);
+}
+</script>
+
+</body>
+</html>

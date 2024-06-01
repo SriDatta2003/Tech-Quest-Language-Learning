@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Engineering Physics</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background-image: linear-gradient(to top, #040308, #AD4A28, #DD723C, #FC7001, #DCB697, #9BA5AE, #3E5879, #020B1A);
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.question {
+  margin-bottom: 20px;
+}
+
+.options {
+  margin-bottom: 20px;
+}
+
+.option {
+  margin-bottom: 10px;
+}
+
+
+
+.correct {
+  background-color: #4caf50;
+}
+
+.incorrect {
+  background-color: #f44336;
+}
+.button-14 {
+  touch-action: manipulation;
+  -webkit-appearance: none;
+  appearance: none;
+  position: relative;
+  border-width: 0;
+  padding: 0 8px 12px;
+  min-width: 10em;
+  box-sizing: border-box;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+}
+
+.button-14-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 0;
+  padding: 8px 16px;
+  transform: translateY(0);
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 -1px rgba(0, 0, 0, .25);
+  transition-property: transform;
+  transition-duration: .2s;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.button-14:active .button-14-top {
+  transform: translateY(6px);
+}
+
+.button-14-top::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  border-radius: 4px;
+  width: 100%;
+  height: 100%;
+  box-sizing: content-box;
+  background-image: radial-gradient(#cd3f64, #9d3656);
+  text-align: center;
+  color: #fff;
+  box-shadow: inset 0 0 0px 1px rgba(255, 255, 255, .2), 0 1px 2px 1px rgba(255, 255, 255, .2);
+  transition-property: border-radius, padding, width, transform;
+  transition-duration: .2s;
+}
+
+.button-14:active .button-14-top::after {
+  border-radius: 6px;
+  padding: 0 2px;
+}
+
+.button-14-bottom {
+  position: absolute;
+  z-index: -1;
+  bottom: 4px;
+  left: 4px;
+  border-radius: 8px / 16px 16px 8px 8px;
+  padding-top: 6px;
+  width: calc(100% - 8px);
+  height: calc(100% - 10px);
+  box-sizing: content-box;
+  background-color: #803;
+  background-image: radial-gradient(4px 8px at 4px calc(100% - 8px), rgba(255, 255, 255, .25), transparent), radial-gradient(4px 8px at calc(100% - 4px) calc(100% - 8px), rgba(255, 255, 255, .25), transparent), radial-gradient(16px at -4px 0, white, transparent), radial-gradient(16px at calc(100% + 4px) 0, white, transparent);
+  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.5), inset 0 -1px 3px 3px rgba(0, 0, 0, .4);
+  transition-property: border-radius, padding-top;
+  transition-duration: .2s;
+}
+
+.button-14:active .button-14-bottom {
+  border-radius: 10px 10px 8px 8px / 8px;
+  padding-top: 0;
+}
+
+.button-14-base {
+  position: absolute;
+  z-index: -2;
+  top: 4px;
+  left: 0;
+  border-radius: 12px;
+  width: 100%;
+  height: calc(100% - 4px);
+  background-color: rgba(0, 0, 0, .15);
+  box-shadow: 0 1px 1px 0 rgba(255, 255, 255, .75), inset 0 2px 2px rgba(0, 0, 0, .25);
+}
+
+</style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Engineering Physics</h2>
+    <div class="question">
+      <p>1. What does Engineering Physics primarily aim to do?</p>
+    </div>
+    <div class="options" id="question1">
+      <div class="option" data-answer="a" onclick="checkAnswer(this, 'b', 'result1')">
+        <input type="radio" id="option1a" name="question1" value="a">
+        <label for="option1a">a) Memorize theoretical concepts without practical applications</label>
+      </div>
+      <div class="option" data-answer="b" onclick="checkAnswer(this, 'b', 'result1')">
+        <input type="radio" id="option1b" name="question1" value="b">
+        <label for="option1b">b) Understand the physical principles underlying various engineering disciplines</label>
+      </div>
+      <div class="option" data-answer="c" onclick="checkAnswer(this, 'b', 'result1')">
+        <input type="radio" id="option1c" name="question1" value="c">
+        <label for="option1c">c) Ignore classical mechanics and focus solely on quantum physics</label>
+      </div>
+      <div class="option" data-answer="d" onclick="checkAnswer(this, 'b', 'result1')">
+        <input type="radio" id="option1d" name="question1" value="d">
+        <label for="option1d">d) Develop new technologies without considering foundational physics</label>
+      </div>
+      <p id="result1"></p>
+    </div>
+    <div class="question">
+      <p>2. Which topic in Engineering Physics deals with the behavior of light and waves?</p>
+    </div>
+    <div class="options" id="question2">
+      <div class="option" data-answer="a" onclick="checkAnswer(this, 'a', 'result2')">
+        <input type="radio" id="option2a" name="question2" value="a">
+        <label for="option2a">a) Optics and Wave Phenomena</label>
+      </div>
+      <div class="option" data-answer="b" onclick="checkAnswer(this, 'a', 'result2')">
+        <input type="radio" id="option2b" name="question2" value="b">
+        <label for="option2b">b) Classical Mechanics</label>
+      </div>
+      <div class="option" data-answer="c" onclick="checkAnswer(this, 'a', 'result2')">
+        <input type="radio" id="option2c" name="question2" value="c">
+        <label for="option2c">c)  Thermodynamics</label>
+      </div>
+      <div class="option" data-answer="d" onclick="checkAnswer(this, 'a', 'result2')">
+        <input type="radio" id="option2d" name="question2" value="d">
+        <label for="option2d">d) Quantum Mechanics</label>
+      </div>
+      <p id="result2"></p>
+    </div>
+    <div class="question">
+      <p>3. In which engineering discipline do engineers use principles of classical mechanics to analyze structures?</p>
+    </div>
+    <div class="options" id="question3">
+      <div class="option" data-answer="a" onclick="checkAnswer(this, 'd', 'result3')">
+        <input type="radio" id="option3a" name="question2" value="a">
+        <label for="option3a">a) Optical Engineering</label>
+      </div>
+      <div class="option" data-answer="b" onclick="checkAnswer(this, 'd', 'result3')">
+        <input type="radio" id="option3b" name="question2" value="b">
+        <label for="option3b">b) Thermal Engineering</label>
+      </div>
+      <div class="option" data-answer="c" onclick="checkAnswer(this, 'd', 'result3')">
+        <input type="radio" id="option3c" name="question2" value="c">
+        <label for="option3c">c)  Electrical Engineering</label>
+      </div>
+      <div class="option" data-answer="d" onclick="checkAnswer(this, 'd', 'result3')">
+        <input type="radio" id="option3d" name="question2" value="d">
+        <label for="option3d">d) Mechanical Engineering</label>
+      </div>
+      <p id="result3"></p>
+    </div>
+    <div class="question">
+      <p>4. What principle of thermodynamics is crucial for understanding energy systems?</p>
+    </div>
+    <div class="options" id="question4">
+      <div class="option" data-answer="a" onclick="checkAnswer(this, 'c', 'result4')">
+        <input type="radio" id="option4a" name="question2" value="a">
+        <label for="option4a">a) Newton's Law of Cooling</label>
+      </div>
+      <div class="option" data-answer="b" onclick="checkAnswer(this, 'c', 'result4')">
+        <input type="radio" id="option4b" name="question2" value="b">
+        <label for="option4b">b) Archimedes' Principle</label>
+      </div>
+      <div class="option" data-answer="c" onclick="checkAnswer(this, 'c', 'result4')">
+        <input type="radio" id="option4c" name="question2" value="c">
+        <label for="option4c">c) Laws of Thermodynamics</label>
+      </div>
+      <div class="option" data-answer="d" onclick="checkAnswer(this, 'c', 'result4')">
+        <input type="radio" id="option4d" name="question2" value="d">
+        <label for="option4d">d) Hooke's Law</label>
+      </div>
+      <p id="result4"></p>
+      <div class="question">
+          <p>5. Which field of engineering utilizes electromagnetism to design communication systems?</p>
+        </div>
+        <div class="options" id="question5">
+          <div class="option" data-answer="a" onclick="checkAnswer(this, 'b', 'result5')">
+            <input type="radio" id="option5a" name="question2" value="a">
+            <label for="option5a">a) Mechanical Engineering</label>
+          </div>
+          <div class="option" data-answer="b" onclick="checkAnswer(this, 'b', 'result5')">
+            <input type="radio" id="option5b" name="question2" value="b">
+            <label for="option5b">b) Electrical Engineering</label>
+          </div>
+          <div class="option" data-answer="c" onclick="checkAnswer(this, 'b', 'result5')">
+            <input type="radio" id="option5c" name="question2" value="c">
+            <label for="option5c">c) Optical Engineering</label>
+          </div>
+          <div class="option" data-answer="d" onclick="checkAnswer(this, 'b', 'result5')">
+            <input type="radio" id="option5d" name="question2" value="d">
+            <label for="option5d">d) Thermal Engineering</label>
+          </div>
+          <p id="result5"></p>
+        </div>
+        <div class="question">
+          <p>6. What is the study of wave-particle duality and quantum superposition crucial for?</p>
+        </div>
+        <div class="options" id="question6">
+          <div class="option" data-answer="a" onclick="checkAnswer(this, 'd', 'result6')">
+            <input type="radio" id="option6a" name="question2" value="a">
+            <label for="option6a">a) Designing refrigeration cycles</label>
+          </div>
+          <div class="option" data-answer="b" onclick="checkAnswer(this, 'd', 'result6')">
+            <input type="radio" id="option6b" name="question2" value="b">
+            <label for="option6b">b) Understanding classical mechanics</label>
+          </div>
+          <div class="option" data-answer="c" onclick="checkAnswer(this, 'd', 'result6')">
+            <input type="radio" id="option6c" name="question2" value="c">
+            <label for="option6c">c) Analyzing structures in mechanical engineering</label>
+          </div>
+          <div class="option" data-answer="d" onclick="checkAnswer(this, 'd', 'result6')">
+            <input type="radio" id="option6d" name="question2" value="d">
+            <label for="option6d">d)  Semiconductor physics and quantum computing</label>
+          </div>
+          <p id="result6"></p>
+        </div>
+        <div class="question">
+          <p>7. What do laboratory experiments in Engineering Physics primarily aim to do?</p>
+        </div>
+        <div class="options" id="question7">
+          <div class="option" data-answer="a" onclick="checkAnswer(this, 'c', 'result7')">
+            <input type="radio" id="option7a" name="question2" value="a">
+            <label for="option7a">a) Reinforce theoretical concepts without any practical application</label>
+          </div>
+          <div class="option" data-answer="b" onclick="checkAnswer(this, 'c', 'result7')">
+            <input type="radio" id="option7b" name="question2" value="b">
+            <label for="option7b">b) Memorize equations without understanding their applications</label>
+          </div>
+          <div class="option" data-answer="c" onclick="checkAnswer(this, 'c', 'result7')">
+            <input type="radio" id="option7c" name="question2" value="c">
+            <label for="option7c">c) Develop experimental skills and verify fundamental laws</label>
+          </div>
+          <div class="option" data-answer="d" onclick="checkAnswer(this, 'c', 'result7')">
+            <input type="radio" id="option7d" name="question2" value="d">
+            <label for="option7d">d)  Ignore the practical aspects of engineering</label>
+          </div>
+          <p id="result7"></p>
+        </div>
+        <div class="question">
+          <p>8. Which engineering discipline addresses challenges in sustainable energy and climate control?</p>
+        </div>
+        <div class="options" id="question8">
+          <div class="option" data-answer="a" onclick="checkAnswer(this, 'c', 'result8')">
+            <input type="radio" id="option8a" name="question2" value="a">
+            <label for="option8a">a) Mechanical Engineering</label>
+          </div>
+          <div class="option" data-answer="b" onclick="checkAnswer(this, 'c', 'result8')">
+            <input type="radio" id="option8b" name="question2" value="b">
+            <label for="option8b">b) Electrical Engineering</label>
+          </div>
+          <div class="option" data-answer="c" onclick="checkAnswer(this, 'c', 'result8')">
+            <input type="radio" id="option8c" name="question2" value="c">
+            <label for="option8c">c) Thermal Engineering</label>
+          </div>
+          <div class="option" data-answer="d" onclick="checkAnswer(this, 'c', 'result8')">
+            <input type="radio" id="option8d" name="question2" value="d">
+            <label for="option8d">d) Optical Engineering</label>
+          </div>
+          <p id="result8"></p>
+        </div>
+        <div class="question">
+          <p>9. What is the overarching goal of studying Engineering Physics?</p>
+        </div>
+        <div class="options" id="question9">
+          <div class="option" data-answer="a" onclick="checkAnswer(this, 'b', 'result9')">
+            <input type="radio" id="option9a" name="question2" value="a">
+            <label for="option9a">a) To ignore foundational principles of physics</label>
+          </div>
+          <div class="option" data-answer="b" onclick="checkAnswer(this, 'b', 'result9')">
+            <input type="radio" id="option9b" name="question2" value="b">
+            <label for="option9b">b)  To tackle complex technological challenges</label>
+          </div>
+          <div class="option" data-answer="c" onclick="checkAnswer(this, 'b', 'result9')">
+            <input type="radio" id="option9c" name="question2" value="c">
+            <label for="option9c">c) To memorize equations without practical application</label>
+          </div>
+          <div class="option" data-answer="d" onclick="checkAnswer(this, 'b', 'result9')">
+            <input type="radio" id="option9d" name="question2" value="d">
+            <label for="option9d">d) To focus solely on theoretical concepts</label>
+          </div>
+          <p id="result9"></p>
+        </div>
+        <div class="question">
+          <p>10. How does Engineering Physics contribute to innovation?</p>
+        </div>
+        <div class="options" id="question10">
+          <div class="option" data-answer="a" onclick="checkAnswer(this, 'a', 'result10')">
+            <input type="radio" id="option10a" name="question2" value="a">
+            <label for="option10a">a) By mastering foundational principles of physics and applying them in engineering</label>
+          </div>
+          <div class="option" data-answer="b" onclick="checkAnswer(this, 'a', 'result10')">
+            <input type="radio" id="option10b" name="question2" value="b">
+            <label for="option10b">b) By neglecting classical mechanics</label>
+          </div>
+          <div class="option" data-answer="c" onclick="checkAnswer(this, 'a', 'result10')">
+            <input type="radio" id="option10c" name="question2" value="c">
+            <label for="option10c">c) By disregarding laboratory experiments</label>
+          </div>
+          <div class="option" data-answer="d" onclick="checkAnswer(this, 'a', 'result10')">
+            <input type="radio" id="option10d" name="question2" value="d">
+            <label for="option10d">d) By focusing solely on quantum mechanics</label>
+          </div>
+          <p id="result10"></p>
+        </div>
+    </div>  <button onclick="submitQuiz()" class="button-14" role="button">
+      <div class="button-14-top text">SUBMIT QUIZ</div>
+      <div class="button-14-bottom"></div>
+      <div class="button-14-base"></div>
+    </button>
+  </div>
+</div>
+
+<script>
+function checkAnswer(option, correctAnswer, resultId) {
+  var userAnswer = option.querySelector('input:checked').value;
+  var result = document.getElementById(resultId);
+  if (userAnswer === correctAnswer) {
+    result.textContent = "Correct!";
+    option.classList.add("correct");
+    option.classList.remove("incorrect");
+  } else {
+    result.textContent = "Incorrect. Try Again :(";
+    option.classList.add("incorrect");
+    option.classList.remove("correct");
+  }
+}
+
+function submitQuiz() {
+  var correctAnswers = document.querySelectorAll('.correct').length;
+  var totalQuestions = document.querySelectorAll('.question').length;
+  var score = (correctAnswers / totalQuestions) * 100;
+  // Redirect to score page and pass the score as a query parameter
+  window.location.href = "ppsscore.html?score=" + score.toFixed(2);
+}
+</script>
+
+</body>
+</html>

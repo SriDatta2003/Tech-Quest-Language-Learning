@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Computational Biology Quiz</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background-image: linear-gradient(135deg, #0E0220 0%, #000000 6px, #E40475 24.8%, #0E0220 35%, #48E0E4 56.3%, #48E0E4 62.4%, #FF00C8 72.9%, #000000DB 78.5%, #48E0E4 100%);
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.question {
+  margin-bottom: 20px;
+}
+
+.options {
+  margin-bottom: 20px;
+}
+
+.option {
+  margin-bottom: 10px;
+}
+
+
+.correct {
+  background-color: #4caf50;
+}
+
+.incorrect {
+  background-color: #f44336;
+}
+.button-14 {
+  touch-action: manipulation;
+  -webkit-appearance: none;
+  appearance: none;
+  position: relative;
+  border-width: 0;
+  padding: 0 8px 12px;
+  min-width: 10em;
+  box-sizing: border-box;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+}
+
+.button-14-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 0;
+  padding: 8px 16px;
+  transform: translateY(0);
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 -1px rgba(0, 0, 0, .25);
+  transition-property: transform;
+  transition-duration: .2s;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.button-14:active .button-14-top {
+  transform: translateY(6px);
+}
+
+.button-14-top::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  border-radius: 4px;
+  width: 100%;
+  height: 100%;
+  box-sizing: content-box;
+  background-image: radial-gradient(#cd3f64, #9d3656);
+  text-align: center;
+  color: #fff;
+  box-shadow: inset 0 0 0px 1px rgba(255, 255, 255, .2), 0 1px 2px 1px rgba(255, 255, 255, .2);
+  transition-property: border-radius, padding, width, transform;
+  transition-duration: .2s;
+}
+
+.button-14:active .button-14-top::after {
+  border-radius: 6px;
+  padding: 0 2px;
+}
+
+.button-14-bottom {
+  position: absolute;
+  z-index: -1;
+  bottom: 4px;
+  left: 4px;
+  border-radius: 8px / 16px 16px 8px 8px;
+  padding-top: 6px;
+  width: calc(100% - 8px);
+  height: calc(100% - 10px);
+  box-sizing: content-box;
+  background-color: #803;
+  background-image: radial-gradient(4px 8px at 4px calc(100% - 8px), rgba(255, 255, 255, .25), transparent), radial-gradient(4px 8px at calc(100% - 4px) calc(100% - 8px), rgba(255, 255, 255, .25), transparent), radial-gradient(16px at -4px 0, white, transparent), radial-gradient(16px at calc(100% + 4px) 0, white, transparent);
+  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.5), inset 0 -1px 3px 3px rgba(0, 0, 0, .4);
+  transition-property: border-radius, padding-top;
+  transition-duration: .2s;
+}
+
+.button-14:active .button-14-bottom {
+  border-radius: 10px 10px 8px 8px / 8px;
+  padding-top: 0;
+}
+
+.button-14-base {
+  position: absolute;
+  z-index: -2;
+  top: 4px;
+  left: 0;
+  border-radius: 12px;
+  width: 100%;
+  height: calc(100% - 4px);
+  background-color: rgba(0, 0, 0, .15);
+  box-shadow: 0 1px 1px 0 rgba(255, 255, 255, .75), inset 0 2px 2px rgba(0, 0, 0, .25);
+}
+
+</style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Computational Biology Quiz</h2>
+    <div class="question">
+      <p>1. What is the primary goal of Computational Biology?</p>
+    </div>
+    <div class="options" id="question1">
+      <div class="option" data-answer="a" onclick="checkAnswer(this, 'b', 'result1')">
+        <input type="radio" id="option1a" name="question1" value="a">
+        <label for="option1a">a) Analyzing geological data</label>
+      </div>
+      <div class="option" data-answer="b" onclick="checkAnswer(this, 'b', 'result1')">
+        <input type="radio" id="option1b" name="question1" value="b">
+        <label for="option1b">b) Analyzing biological data using computational techniques</label>
+      </div>
+      <div class="option" data-answer="c" onclick="checkAnswer(this, 'b', 'result1')">
+        <input type="radio" id="option1c" name="question1" value="c">
+        <label for="option1c">c) Analyzing financial data</label>
+      </div>
+      <div class="option" data-answer="d" onclick="checkAnswer(this, 'b', 'result1')">
+        <input type="radio" id="option1d" name="question1" value="d">
+        <label for="option1d">d) Analyzing astronomical data</label>
+      </div>
+      <p id="result1"></p>
+    </div>
+    <div class="question">
+      <p>2. Which of the following is NOT a type of biological data commonly analyzed in Computational Biology?</p>
+    </div>
+    <div class="options" id="question2">
+      <div class="option" data-answer="a" onclick="checkAnswer(this, 'c', 'result2')">
+        <input type="radio" id="option2a" name="question2" value="a">
+        <label for="option2a">a) DNA sequences</label>
+      </div>
+      <div class="option" data-answer="b" onclick="checkAnswer(this, 'c', 'result2')">
+        <input type="radio" id="option2b" name="question2" value="b">
+        <label for="option2b">b) Protein structures</label>
+      </div>
+      <div class="option" data-answer="c" onclick="checkAnswer(this, 'c', 'result2')">
+        <input type="radio" id="option2c" name="question2" value="c">
+        <label for="option2c">c) Weather patterns</label>
+      </div>
+      <div class="option" data-answer="d" onclick="checkAnswer(this, 'c', 'result2')">
+        <input type="radio" id="option2d" name="question2" value="d">
+        <label for="option2d">d) Gene expression profiles</label>
+      </div>
+      <p id="result2"></p>
+    </div>
+    <div class="question">
+      <p>3. What is the primary purpose of sequence analysis in Computational Biology?</p>
+    </div>
+    <div class="options" id="question3">
+      <div class="option" data-answer="a" onclick="checkAnswer(this, 'b', 'result3')">
+        <input type="radio" id="option3a" name="question2" value="a">
+        <label for="option3a">a) Analyzing traffic patterns</label>
+      </div>
+      <div class="option" data-answer="b" onclick="checkAnswer(this, 'b', 'result3')">
+        <input type="radio" id="option3b" name="question2" value="b">
+        <label for="option3b">b) Analyzing DNA, RNA, and protein sequences</label>
+      </div>
+      <div class="option" data-answer="c" onclick="checkAnswer(this, 'b', 'result3')">
+        <input type="radio" id="option3c" name="question2" value="c">
+        <label for="option3c">c) Analyzing stock market trends</label>
+      </div>
+      <div class="option" data-answer="d" onclick="checkAnswer(this, 'b', 'result3')">
+        <input type="radio" id="option3d" name="question2" value="d">
+        <label for="option3d">d) Analyzing weather forecasts</label>
+      </div>
+      <p id="result3"></p>
+    </div>
+    <div class="question">
+      <p>4. Which technique in Computational Biology is used for predicting and analyzing protein structures?</p>
+    </div>
+    <div class="options" id="question4">
+      <div class="option" data-answer="a" onclick="checkAnswer(this, 'b', 'result4')">
+        <input type="radio" id="option4a" name="question2" value="a">
+        <label for="option4a">a) Genome assembly</label>
+      </div>
+      <div class="option" data-answer="b" onclick="checkAnswer(this, 'b', 'result4')">
+        <input type="radio" id="option4b" name="question2" value="b">
+        <label for="option4b">b) Homology modeling</label>
+      </div>
+      <div class="option" data-answer="c" onclick="checkAnswer(this, 'b', 'result4')">
+        <input type="radio" id="option4c" name="question2" value="c">
+        <label for="option4c">c) Gene expression analysis</label>
+      </div>
+      <div class="option" data-answer="d" onclick="checkAnswer(this, 'b', 'result4')">
+        <input type="radio" id="option4d" name="question2" value="d">
+        <label for="option4d">d) Weather forecasting</label>
+      </div>
+      <p id="result4"></p>
+      <div class="question">
+          <p>5.Systems Biology aims to understand biological systems as:</p>
+        </div>
+        <div class="options" id="question5">
+          <div class="option" data-answer="a" onclick="checkAnswer(this, 'c', 'result5')">
+            <input type="radio" id="option5a" name="question2" value="a">
+            <label for="option5a">a) Independent entities</label>
+          </div>
+          <div class="option" data-answer="b" onclick="checkAnswer(this, 'c', 'result5')">
+            <input type="radio" id="option5b" name="question2" value="b">
+            <label for="option5b">b) Static structures</label>
+          </div>
+          <div class="option" data-answer="c" onclick="checkAnswer(this, 'c', 'result5')">
+            <input type="radio" id="option5c" name="question2" value="c">
+            <label for="option5c">c) Integrated networks of genes, proteins, and metabolites</label>
+          </div>
+          <div class="option" data-answer="d" onclick="checkAnswer(this, 'c', 'result5')">
+            <input type="radio" id="option5d" name="question2" value="d">
+            <label for="option5d">d) Isolated components</label>
+          </div>
+          <p id="result5"></p>
+        </div>
+        <div class="question">
+          <p>6. Which type of analysis involves studying genetic variations and gene expression patterns?</p>
+        </div>
+        <div class="options" id="question6">
+          <div class="option" data-answer="a" onclick="checkAnswer(this, 'b', 'result6')">
+            <input type="radio" id="option6a" name="question2" value="a">
+            <label for="option6a">a) Structural Biology</label>
+          </div>
+          <div class="option" data-answer="b" onclick="checkAnswer(this, 'b', 'result6')">
+            <input type="radio" id="option6b" name="question2" value="b">
+            <label for="option6b">b) Genomic Data Analysis</label>
+          </div>
+          <div class="option" data-answer="c" onclick="checkAnswer(this, 'b', 'result6')">
+            <input type="radio" id="option6c" name="question2" value="c">
+            <label for="option6c">c) Drug Discovery and Design</label>
+          </div>
+          <div class="option" data-answer="d" onclick="checkAnswer(this, 'b', 'result6')">
+            <input type="radio" id="option6d" name="question2" value="d">
+            <label for="option6d">d) Biomedical Image Analysis</label>
+          </div>
+          <p id="result6"></p>
+        </div>
+        <div class="question">
+          <p>7. What role does machine learning play in Computational Biology?</p>
+        </div>
+        <div class="options" id="question7">
+          <div class="option" data-answer="a" onclick="checkAnswer(this, 'c', 'result7')">
+            <input type="radio" id="option7a" name="question2" value="a">
+            <label for="option7a">a) Predicting stock market trends</label>
+          </div>
+          <div class="option" data-answer="b" onclick="checkAnswer(this, 'c', 'result7')">
+            <input type="radio" id="option7b" name="question2" value="b">
+            <label for="option7b">b) Analyzing weather patterns</label>
+          </div>
+          <div class="option" data-answer="c" onclick="checkAnswer(this, 'c', 'result7')">
+            <input type="radio" id="option7c" name="question2" value="c">
+            <label for="option7c">c) Solving biological problems using algorithms</label>
+          </div>
+          <div class="option" data-answer="d" onclick="checkAnswer(this, 'c', 'result7')">
+            <input type="radio" id="option7d" name="question2" value="d">
+            <label for="option7d">d) Analyzing geological data</label>
+          </div>
+          <p id="result7"></p>
+        </div>
+        <div class="question">
+          <p>8.Which area of Computational Biology involves predicting drug response and patient outcomes?</p>
+        </div>
+        <div class="options" id="question8">
+          <div class="option" data-answer="a" onclick="checkAnswer(this, 'c', 'result8')">
+            <input type="radio" id="option8a" name="question2" value="a">
+            <label for="option8a">a) Structural Biology</label>
+          </div>
+          <div class="option" data-answer="b" onclick="checkAnswer(this, 'c', 'result8')">
+            <input type="radio" id="option8b" name="question2" value="b">
+            <label for="option8b">b) Genomic Data Analysis</label>
+          </div>
+          <div class="option" data-answer="c" onclick="checkAnswer(this, 'c', 'result8')">
+            <input type="radio" id="option8c" name="question2" value="c">
+            <label for="option8c">c) Cancer Genomics and Personalized Medicine</label>
+          </div>
+          <div class="option" data-answer="d" onclick="checkAnswer(this, 'c', 'result8')">
+            <input type="radio" id="option8d" name="question2" value="d">
+            <label for="option8d">d) Biomedical Image Analysis</label>
+          </div>
+          <p id="result8"></p>
+        </div>
+        <div class="question">
+          <p>9. What computational technique is used for analyzing biomedical images?</p>
+        </div>
+        <div class="options" id="question9">
+          <div class="option" data-answer="a" onclick="checkAnswer(this, 'c', 'result9')">
+            <input type="radio" id="option9a" name="question2" value="a">
+            <label for="option9a">a) Predictive modeling</label>
+          </div>
+          <div class="option" data-answer="b" onclick="checkAnswer(this, 'c', 'result9')">
+            <input type="radio" id="option9b" name="question2" value="b">
+            <label for="option9b">b) Sentiment analysis</label>
+          </div>
+          <div class="option" data-answer="c" onclick="checkAnswer(this, 'c', 'result9')">
+            <input type="radio" id="option9c" name="question2" value="c">
+            <label for="option9c">c) Biomedical Image Analysis</label>
+          </div>
+          <div class="option" data-answer="d" onclick="checkAnswer(this, 'c', 'result9')">
+            <input type="radio" id="option9d" name="question2" value="d">
+            <label for="option9d">d) Financial forecasting</label>
+          </div>
+          <p id="result9"></p>
+        </div>
+        <div class="question">
+          <p>10. What opportunities are available for students in Computational Biology?</p>
+        </div>
+        <div class="options" id="question10">
+          <div class="option" data-answer="a" onclick="checkAnswer(this, 'a', 'result10')">
+            <input type="radio" id="option10a" name="question2" value="a">
+            <label for="option10a">a) Engage in practical projects and research opportunities</label>
+          </div>
+          <div class="option" data-answer="b" onclick="checkAnswer(this, 'a', 'result10')">
+            <input type="radio" id="option10b" name="question2" value="b">
+            <label for="option10b">b) Analyze traffic patterns</label>
+          </div>
+          <div class="option" data-answer="c" onclick="checkAnswer(this, 'a', 'result10')">
+            <input type="radio" id="option10c" name="question2" value="c">
+            <label for="option10c">c) Analyze financial data</label>
+          </div>
+          <div class="option" data-answer="d" onclick="checkAnswer(this, 'a', 'result10')">
+            <input type="radio" id="option10d" name="question2" value="d">
+            <label for="option10d">d) Study geological formations</label>
+          </div>
+          <p id="result10"></p>
+        </div>
+    </div>
+    <button onclick="submitQuiz()" class="button-14" role="button">
+      <div class="button-14-top text">SUBMIT QUIZ</div>
+      <div class="button-14-bottom"></div>
+      <div class="button-14-base"></div>
+  </div>
+</div>
+
+<script>
+function checkAnswer(option, correctAnswer, resultId) {
+  var userAnswer = option.querySelector('input:checked').value;
+  var result = document.getElementById(resultId);
+  if (userAnswer === correctAnswer) {
+    result.textContent = "Correct!";
+    option.classList.add("correct");
+    option.classList.remove("incorrect");
+  } else {
+    result.textContent = "Incorrect. Try Again :(";
+    option.classList.add("incorrect");
+    option.classList.remove("correct");
+  }
+}
+
+function submitQuiz() {
+  var correctAnswers = document.querySelectorAll('.correct').length;
+  var totalQuestions = document.querySelectorAll('.question').length;
+  var score = (correctAnswers / totalQuestions) * 100;
+  // Redirect to score page and pass the score as a query parameter
+  window.location.href = "ppsscore.html?score=" + score.toFixed(2);
+}
+</script>
+
+</body>
+</html>
